@@ -14,6 +14,14 @@ export function setupFormValidation() {
   messageInput.addEventListener('input', () => {
     const length = messageInput.value.length;
     charactersLeft.textContent = `Characters: ${length}/300`;
+
+    if (length > 300) {
+      charactersLeft.classList.add('error');
+      messageInput.classList.add('error');
+    } else {
+      charactersLeft.classList.remove('error');
+      messageInput.classList.remove('error');
+    }
   });
 
   form.addEventListener('submit', (e) => {
@@ -52,6 +60,8 @@ export function setupFormValidation() {
       alert('Form submitted successfully!');
       form.reset();
       charactersLeft.textContent = 'Characters: 0/300';
+      charactersLeft.classList.remove('error');
+      messageInput.classList.remove('error');
     }
   });
 }
