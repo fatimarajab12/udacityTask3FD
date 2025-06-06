@@ -32,6 +32,11 @@ button:focus {
     outline: 2px solid var(--success);
     outline-offset: 2px;
 }
+.error {
+  color: red !important;
+  border-color: red !important;
+}
+
 
 header {
     display: flex;
